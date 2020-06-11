@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 **/
 
 const MaterialNavbar = (props) => {
+  // Random background image "https://placeimg.com/640/480/tech"
   return(
     <Navbar
     className="light-green"
@@ -32,16 +33,16 @@ const MaterialNavbar = (props) => {
           <li>
           <div className="user-view">
             <div className="background">
-              <img src="https://placeimg.com/640/480/tech" alt="Profile information background" />
+              <img src={require('../../assets/nav_drawer.jpg')} alt="Profile information background" />
             </div>
             <NavLink className="sidenav-close" to="/"><img className="circle" src={require('../../assets/icons/logo_simple.png')} alt="Profile" /></NavLink>
             <NavLink className="sidenav-close" to="/"><span className="white-text name">CAMPEOL Toni</span></NavLink>
             <a className="sidenav-close" href="mailto:toni.campeol@outlook.fr"><span className="white-text email">toni.campeol@outlook.fr</span></a>
           </div>
         </li>
-        <li><NavLink className="sidenav-close" to="/">Home</NavLink></li>
-        <li><NavLink className="sidenav-close" to="/projects">Projets</NavLink></li>
-        <li><NavLink className="sidenav-close" to="/about-me">A propos</NavLink></li>
+        <li><NavLink className="sidenav-close" to="/"><Icon className="left">home</Icon>Home</NavLink></li>
+        <li><NavLink className="sidenav-close" to="/projects"><Icon className="left">construction</Icon>Projets</NavLink></li>
+        <li><NavLink className="sidenav-close" to="/about-me"><Icon className="left">person</Icon>A propos</NavLink></li>
         </ul>
       }
     >

@@ -1,0 +1,53 @@
+[
+    {
+        "id": 0,
+        "name": "Android",
+        "desc": "J'aime l'écosystème Android et le monde du smartphone, je souhaite me former et devenir développeur Android, pour cela j'ai choisi de réaliser une formation sur OpenClassrooms. J'ai réalisé la moitié de la formation et je recherche une entreprise pour pouvoir la terminer en alternance.",
+        "picture": "bugdroid.png",
+        "picture_alt": "Android maskott",
+        "projects": 
+        [
+            {
+                "id": 0,
+                "title": "an amazing title",
+                "content": "lorem ipsum",
+                "main_picture": "mock/location/picture.png",
+                "main_picture_alt": ""
+            },
+            {
+                "id": 1,
+                "title": "an amazing title 2",
+                "content": "lorem ipsum dolor",
+                "main_picture": "mock/location/picture.png",
+                "main_picture_alt": ""
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "IoT",
+        "desc": "Sur mon temps libre j'aime beaucoup travailler sur des projets de domotique et d'automatisation, des projets simples comme un capteur de température avec un historique et des projets de plus grande taille comme une unité de lavage automatique pour machine à traire dans le monde agricole.",
+        "picture": "raspberry_pi.png",
+        "picture_alt": "Raspberry micro computer",
+        "projects": 
+        []
+    },
+    {
+        "id": 2,
+        "name": "Linux",
+        "desc": "lorem ipsum dolor sit amet",
+        "picture": "",
+        "picture_alt": "undefined",
+        "projects": 
+        []
+    },
+    {
+        "id": 3,
+        "name": "Mécanique",
+        "desc": "J'aime également beaucoup la mécanique et la conception d'outils en tout genre. Je suis fortement intéressé par le monde agricole et plus tard je souhaite pouvoir profiter des deux mondes. ",
+        "picture": "fendeuse.png",
+        "picture_alt": "Fendeur de bûches maison",
+        "projects": 
+        []
+    }
+]
