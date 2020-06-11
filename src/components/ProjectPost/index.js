@@ -10,15 +10,24 @@ import ProjectPostData from "../../data/projets.json"
 
 const ProjectPost = (props) => {
 
-    const [project, setProject] = useState({});
+    const [project, setProject] = useState({
+        id : "",
+        category : "",
+        title : "",
+        created : "",
+        post_content_title : "",
+        post_content : ""
+    });
     const [projectId, setProjectId] = useState('');
 
     useEffect(() => {
         const projectId = props.match.params.projectId;
-        const project = ProjectPostData.find(project => project.id == projectId);
+        const project = ProjectPostData.find(project => `${project.id}` === projectId);
         setProject(project);
         setProjectId(projectId);
     }, [project, props.match.params.projectId]);
+
+    console.log(`Project loaded : ${projectId}`);
 
   return(
       <div className="projectPostContainer">
@@ -30,7 +39,7 @@ const ProjectPost = (props) => {
             </div>
 
             <div className="projectPostImageContainer">
-                <img alt="Project post image" src={require("../../assets/nav_drawer_easyvgp.png")}/>
+                <img alt="Project post" src={require("../../assets/nav_drawer_easyvgp.png")}/>
             </div>
 
             <div className="projectPostContent">

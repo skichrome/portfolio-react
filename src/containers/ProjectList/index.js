@@ -14,14 +14,14 @@ const ProjectList = (props) => {
   useEffect(() => {
       const projects = ProjectPostData;
       setProjects(projects);
-  }, projects);
+  }, [projects]);
 
   return(
       <div className="projects">
           {
               projects.map(project => {
                   return(
-                      <NavLink to={`/project/${project.id}`}>
+                      <NavLink key={project.id} to={`/project/${project.id}`}>
                           <h1>{project.title}</h1>
                           <div>{project.created}</div>
                       </NavLink>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import './style.css';
+import MaterialNavbar from '../MaterialNavbar';
 
 /**
 * @author
@@ -8,17 +7,7 @@ import './style.css';
 **/
 
 const Header = (props) => {
-  return(
-      <header className="header">
-          <nav className="headerMenu">
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/contact">Contact</NavLink>
-          </nav>
-      <div>
-          Social media icons
-      </div>
-      </header>
-   );
+  return(<MaterialNavbar/>);
  }
 
 export default Header

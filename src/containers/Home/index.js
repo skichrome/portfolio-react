@@ -1,10 +1,11 @@
 import React from 'react';
 import './style.css';
+import PresentationSlider from '../../components/PresentationSlider';
 
 const Home = props => {
     return(
-        <div>
-            Home
+        <div className="homeContainer">
+            <PresentationSlider />
         </div>
     );
 }

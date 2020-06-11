@@ -1,0 +1,44 @@
+[
+    {
+        "image": 
+        {
+            "id": 0,
+            "alt": "arrière plan montrant le Mont Blanc",
+            "location": "background_mont_blanc.jpg"
+        },
+        "citation":
+        {
+            "id": 0,
+            "content": "Quand tu arrives en haut de la montagne, continue de grimper.",
+            "author": "Proverbe tibétain"
+        }
+    },
+    {
+        "image": 
+        {
+            "id": 1,
+            "alt": "lac d'Annecy",
+            "location": "background_annecy.jpg"
+        },
+        "citation":
+        {
+            "id": 1,
+            "content": "À force de persévérance, n'importe qui peut parvenir à déplacer une montagne.",
+            "author": "Proverbe chinois"
+        }
+    },
+    {
+        "image": 
+        {
+            "id": 2,
+            "alt": "montagne enneigée",
+            "location": "background_very.jpg"
+        },
+        "citation":
+        {
+            "id": 2,
+            "content": "Un homme sans défauts est une montagne sans crevasses. Il ne m'intéresse pas.",
+            "author": "René Char"
+        }
+    }
+]
