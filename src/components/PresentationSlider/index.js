@@ -28,7 +28,7 @@ const PresentationSlider = (props) => {
           {
               sliderList.map(sliderItem => {
                   return(
-                      <Slide image={<img alt={sliderItem.image.alt} src={require(`../../assets/${sliderItem.image.location}`)} />}>
+                      <Slide key={sliderItem.image.id} image={<img alt={sliderItem.image.alt} src={require(`../../assets/${sliderItem.image.location}`)} />}>
                           <Caption className="row caption left-align" placement="left">
                                 <div className="col s12 m7 l8 xl4">
                                     <Card className="blue darken-1">
