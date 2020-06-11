@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import ProjectPost from '../../components/ProjectPost'
 
 /**
 * @author
@@ -8,7 +9,9 @@ import './style.css';
 
 const Project = (props) => {
   return(
-    <div>Project</div>
+    <section className="container">
+      <ProjectPost {...props}/>
+    </section>
    );
  }
 

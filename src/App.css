@@ -2,8 +2,9 @@ body {
   background-color: #e9eaed;
   font-family: 'Roboto Slab', serif;
 }
+
 .App {
   width: 90%;
   margin: 0 auto;
-  border: 1px solid darkolivegreen;
+  /*border: 1px solid darkolivegreen;*/
 }

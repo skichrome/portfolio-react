@@ -1,0 +1,18 @@
+[
+    {
+        "id": 0,
+        "category": "Arduino",
+        "title": "Arduino is the best",
+        "created": "29 july from scratch",
+        "post_content_title": "Home automation",
+        "post_content": "Lorem ipsum dolor sit amet ..........."
+    },
+    {
+        "id": 1,
+        "category": "Esp8266",
+        "title": "Esp8266 might be the best",
+        "created": "10 july from scratch",
+        "post_content_title": "Home automation reloaded",
+        "post_content": "... Lorem ipsum dolor sit amet ..........."
+    }
+]
