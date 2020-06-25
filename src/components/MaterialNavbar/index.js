@@ -15,7 +15,7 @@ const MaterialNavbar = (props) => {
     <Navbar
     className="light-green"
       alignLinks="right"
-      brand={<NavLink to="/">CAMPEOL Toni</NavLink>}
+      brand={<NavLink className="truncate" to="/">CAMPEOL Toni</NavLink>}
       id="mobile-nav"
       options= {{
         draggable: true,

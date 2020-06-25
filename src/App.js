@@ -9,6 +9,7 @@ import Project from './containers/Project';
 import ProjectList from './containers/ProjectList';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Categorylist from './containers/CategoryList';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Router>
         <Header/>
         <Route path="/" exact component={Home}/>
+        <Route path="/categories/:themeName" component={Categorylist}/>
         <Route path="/projects" component={ProjectList}/>
         <Route path="/project/:projectId" component={Project}/>
         <Route path="/about-me" component={Contact}/>

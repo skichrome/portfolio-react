@@ -36,10 +36,10 @@ const Theme = () => {
         return(
             <Row key={theme.id}>
                 <Col l={10} offset={'l1'} s={12}>
-                    <Card actions={[<NavLink key={theme.id} to={`/theme/${theme.id}`}><Icon right>arrow_forward</Icon> En savoir plus</NavLink>]}
+                    <Card actions={[<NavLink key={theme.id} to={{pathname: `/categories/${theme.name}`, themeId: theme.id}}><Icon right>arrow_forward</Icon> En savoir plus</NavLink>]}
                         title={theme.name}
                         textClassName="white-text"
-                        className="light-blue darken-2"
+                        className="light-blue darken-2 hoverable"
                         header={ imgSrc ? <CardTitle image={imgSrc} alt='rees' className="valign-wrapper"></CardTitle> : null }
                         horizontal
                     >
