@@ -6,44 +6,44 @@ import { database } from '../../firebase';
 
 /**
 * @author
-* @function Category
+* @function Theme
 **/
 
-const Category = () => {
-    const [categories, setCategories] = useState([]);
+const Theme = () => {
+    const [themes, setThemes] = useState([]);
 
     useEffect(() => {
         console.log('effect');
-        const categoriesFromFirestore = database.collection('portfolio')
+        const unsubscribe = database.collection('portfolio')
             .doc('V1.0')
-            .collection('categories')
+            .collection('themes')
             .onSnapshot(snapshot => {
-                const allCategories = snapshot.docs.map(category => ({
-                    id: category.id,
-                    ...category.data()
+                const allThemes = snapshot.docs.map(theme => ({
+                    id: theme.id,
+                    ...theme.data()
                 }));
-                setCategories(allCategories);
+                setThemes(allThemes);
             });
         return () => {
             console.log('cleanup');
-            categoriesFromFirestore();
+            unsubscribe();
         }
     },[]);
 
   return(
-    categories.map(category => {
-        const imgSrc = category.picture ? require('../../assets/' + category.picture) : null;
+    themes.map(theme => {
+        const imgSrc = theme.picture ? require('../../assets/' + theme.picture) : null;
         return(
-            <Row key={category.id}>
+            <Row key={theme.id}>
                 <Col l={10} offset={'l1'} s={12}>
-                    <Card actions={[<NavLink key={category.id} to={`/category/${category.id}`}><Icon right>arrow_forward</Icon> En savoir plus</NavLink>]}
-                        title={category.name}
+                    <Card actions={[<NavLink key={theme.id} to={`/theme/${theme.id}`}><Icon right>arrow_forward</Icon> En savoir plus</NavLink>]}
+                        title={theme.name}
                         textClassName="white-text"
                         className="light-blue darken-2"
                         header={ imgSrc ? <CardTitle image={imgSrc} alt='rees' className="valign-wrapper"></CardTitle> : null }
                         horizontal
                     >
-                        <p>{category.desc}</p>
+                        <p>{theme.desc}</p>
                     </Card>
                 </Col>
             </Row>
@@ -52,4 +52,4 @@ const Category = () => {
   );
  }
 
-export default Category
+export default Theme
