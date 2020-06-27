@@ -10,13 +10,16 @@ import './style.css';
 **/
 
 const Categorylist = (props) => {
-    const themeId = `${props.location.themeId}`;
+    let themeId = `${props.location.themeId}`;
     const [categories, setCategories] = useState([]);
 
+    if (themeId !== 'undefined')
+        localStorage.setItem('themeId', themeId);
+    else
+        themeId = localStorage.getItem('themeId');
+
     useEffect(() => {
-        const unsubscribe = database.collection('portfolio')
-            .doc('V1.0')
-            .collection('themes')
+        const unsubscribe = database.collection('themes')
             .doc(themeId)
             .collection('categories')
             .onSnapshot(snapshot => {
@@ -38,7 +41,7 @@ const Categorylist = (props) => {
         <div className="container">
             <Row>
                 <Col l={12}>            
-                    <h4 className="white-text">Catégories de projets associées</h4>
+                    <h4 className="white-text center">Catégories de projets associées</h4>
                 </Col>
                 {
                     categories.map(category => {
@@ -52,7 +55,7 @@ const Categorylist = (props) => {
                                         reveal={<p>{category.desc}</p>}
                                         revealIcon={<Icon>info</Icon>}
                                         title={category.name}
-                                        actions={[<NavLink to={{pathname: `/category/`}}><Icon right>arrow_forward</Icon> En savoir plus</NavLink>]}
+                                        actions={[<NavLink key={category.id} to={{pathname: `/projects/${category.name}`, themeId: `${themeId}`, categoryId: `${category.id}`}}><Icon right>arrow_forward</Icon> En savoir plus</NavLink>]}
                                     >
                                     </Card>
                                 </Col>

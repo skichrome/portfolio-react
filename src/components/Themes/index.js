@@ -14,9 +14,7 @@ const Theme = () => {
 
     useEffect(() => {
         console.log('effect');
-        const unsubscribe = database.collection('portfolio')
-            .doc('V1.0')
-            .collection('themes')
+        const unsubscribe = database.collection('themes')
             .onSnapshot(snapshot => {
                 const allThemes = snapshot.docs.map(theme => ({
                     id: theme.id,

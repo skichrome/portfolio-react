@@ -19,7 +19,7 @@ function App() {
         <Route path="/" exact component={Home}/>
         <Route path="/categories/:themeName" component={Categorylist}/>
         <Route path="/projects" component={ProjectList}/>
-        <Route path="/project/:projectId" component={Project}/>
+        <Route path="/project/:projectName" component={Project}/>
         <Route path="/about-me" component={Contact}/>
         <Footer/>
       </Router>

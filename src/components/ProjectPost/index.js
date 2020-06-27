@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './style.css';
 import Card from '../UI/Card';
-import ProjectPostData from "../../data/projets.json"
+import { database } from '../../firebase';
 
 /**
 * @author
@@ -9,6 +9,26 @@ import ProjectPostData from "../../data/projets.json"
 **/
 
 const ProjectPost = (props) => {
+    let themeId = `${props.location.themeId}`;
+    let categoryId = `${props.location.categoryId}`;
+    let projectId = `${props.location.projectId}`;
+
+    // Save current theme and category ID to local storage to avoid errors
+    // when refreshing the page or go back
+    if (themeId !== 'undefined')
+        localStorage.setItem('themeId', themeId);
+    else
+        themeId = localStorage.getItem('themeId');
+
+    if (categoryId !== 'undefined')
+        localStorage.setItem('categoryId', categoryId);
+    else
+        categoryId = localStorage.getItem('categoryId');
+
+    if (projectId !== 'undefined')
+        localStorage.setItem('projectId', projectId);
+    else
+        projectId = localStorage.getItem('projectId');
 
     const [project, setProject] = useState({
         id : "",
@@ -18,24 +38,38 @@ const ProjectPost = (props) => {
         post_content_title : "",
         post_content : ""
     });
-    const [projectId, setProjectId] = useState('');
 
     useEffect(() => {
-        const projectId = props.match.params.projectId;
-        const project = ProjectPostData.find(project => `${project.id}` === projectId);
-        setProject(project);
-        setProjectId(projectId);
-    }, [project, props.match.params.projectId]);
+        const unsubscribe = database.collection('themes')
+            .doc(themeId)
+            .collection('categories')
+            .doc(categoryId)
+            .collection('projects')
+            .doc(projectId)
+            .onSnapshot(snapshot => {
+                const monthNames = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+                const data = snapshot.data();
+                const projectDate = new Date(Number(data.created.seconds * 1000));
+                data.created = `${projectDate.getDate()} ${monthNames[projectDate.getMonth()]} ${projectDate.getFullYear()}`;
 
-    console.log(`Project loaded : ${projectId}`);
+                const project = {
+                    id: snapshot.id,
+                    ...data
+                }
+                setProject(project);
+            });
+            return() => {
+                unsubscribe();
+            }
+    }, [themeId, categoryId, projectId]);
 
   return(
       <div className="projectPostContainer">
         <Card>
             <div className="projectPostHeader">  
-                <span className="projectPostCategory">{project.category}</span>
+                <span className="projectPostCategory">{project.category}Category</span>
                 <h1 className="projectPostTitle">{project.title}</h1>
-                <span className="projectPostPosted">{project.created}</span>
+                <span className="projectPostPosted">Créé le {project.created}</span>
             </div>
 
             <div className="projectPostImageContainer">
@@ -43,8 +77,16 @@ const ProjectPost = (props) => {
             </div>
 
             <div className="projectPostContent">
-                <h3>{project.post_content_title}</h3>
-                <p>{project.post_content}</p>
+                {
+                    Object.values(project.post_content).map((item, index) => {
+                        return(
+                            <div className="white-text" key={index}>
+                                <h3>{item.title}</h3>
+                                <p>{item.content}</p>
+                            </div>
+                        );
+                    })
+                }
             </div>
         </Card>
       </div>
