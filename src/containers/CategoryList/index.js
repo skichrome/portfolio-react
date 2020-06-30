@@ -45,13 +45,14 @@ const Categorylist = (props) => {
                 </Col>
                 {
                     categories.map(category => {
+                        const img = category.image ? category.image : "https://materializecss.com/images/sample-1.jpg"
                         return (
                                 <Col l={4} m={6} s={10} offset={'s1'} key={category.id}>
                                     <Card
                                         textClassName="white-text"
                                         className="light-blue darken-2 hoverable"
                                         closeIcon={<Icon>close</Icon>}
-                                        header={<CardTitle image="https://materializecss.com/images/sample-1.jpg" reveal waves="light"/>}
+                                        header={<CardTitle image={img} alt={category.image_alt} reveal waves="light"/>}
                                         reveal={<p>{category.desc}</p>}
                                         revealIcon={<Icon>info</Icon>}
                                         title={category.name}

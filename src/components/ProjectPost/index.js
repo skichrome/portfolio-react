@@ -73,7 +73,7 @@ const ProjectPost = (props) => {
             </div>
 
             <div className="projectPostImageContainer">
-                <img alt="Project post" src={require("../../assets/nav_drawer_easyvgp.png")}/>
+                <img alt="Project post" src={project.main_picture} alt={project.main_picture_alt}/>
             </div>
 
             <div className="projectPostContent">
@@ -83,6 +83,9 @@ const ProjectPost = (props) => {
                             <div className="white-text" key={index}>
                                 <h3>{item.title}</h3>
                                 <p>{item.content}</p>
+                                <div className="projectContentImageContainer">
+                                    <img alt="Project post" src={item.image}/>
+                                </div>
                             </div>
                         );
                     })

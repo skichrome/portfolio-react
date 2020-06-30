@@ -55,14 +55,15 @@ const ProjectList = (props) => {
                 </Col>
                 {
                     projects.map(project => {
+                        const img = project.main_picture ? project.main_picture : "https://materializecss.com/images/sample-1.jpg"
                         return(
                             <Col s={12} m={6}>
                                 <Card
                                     className="light-blue darken-2 hoverable"
-                                    header={<CardTitle image="https://materializecss.com/images/sample-1.jpg">{project.title}</CardTitle>}
+                                    header={<CardTitle image={img} alt={project.main_picture_alt}>{project.title}</CardTitle>}
                                     actions={[<NavLink key={project.id} to={{pathname: `/project/${project.title}`, themeId: `${themeId}`, categoryId: `${categoryId}`, projectId: `${project.id}`}}><Icon right>arrow_forward</Icon> En savoir plus</NavLink>]}
                                 >
-                                    {project.content}
+                                    {project.description}
                                 </Card>
                             </Col>
                         );

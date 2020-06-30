@@ -3,6 +3,7 @@ import 'materialize-css';
 import { Icon, Card, CardTitle, Row, Col } from 'react-materialize';
 import { NavLink } from 'react-router-dom';
 import { database } from '../../firebase';
+import './style.css';
 
 /**
 * @author
@@ -30,7 +31,7 @@ const Theme = () => {
 
   return(
     themes.map(theme => {
-        const imgSrc = theme.picture ? require('../../assets/' + theme.picture) : null;
+        const img = theme.image ? theme.image : "https://materializecss.com/images/sample-1.jpg"
         return(
             <Row key={theme.id}>
                 <Col l={10} offset={'l1'} s={12}>
@@ -38,10 +39,10 @@ const Theme = () => {
                         title={theme.name}
                         textClassName="white-text"
                         className="light-blue darken-2 hoverable"
-                        header={ imgSrc ? <CardTitle image={imgSrc} alt='rees' className="valign-wrapper"></CardTitle> : null }
+                        header={<CardTitle image={img} alt={theme.image_alt} className="valign-wrapper"></CardTitle>}
                         horizontal
                     >
-                        <p>{theme.desc}</p>
+                        <p>{theme.description}</p>
                     </Card>
                 </Col>
             </Row>

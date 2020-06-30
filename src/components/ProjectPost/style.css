@@ -54,3 +54,8 @@
     margin: auto;
     padding-bottom: 25px;
 }
+
+.projectContentImageContainer img {
+    max-width: 90%;
+    max-height: 400px;
+}
