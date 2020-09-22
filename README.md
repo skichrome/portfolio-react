@@ -37,4 +37,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Delete or reset old sources repository
 - Clone or update your sources
 - don't forget to  copy firebase credentials into src project folder
-- execute `yarn install` and `yarn build` to install and create a production build of the project 
+- execute `yarn install` and `yarn build` to install and create a production build of the project
+
+## App status
+
+[![Build Status](https://jenkins.campeoltoni.fr/buildStatus/icon?job=portfolio-react)](https://jenkins.campeoltoni.fr/job/portfolio-react/badge/icon?style=flat-square)
