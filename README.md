@@ -7,24 +7,24 @@ This is a portfolio App to show my profile in details, this app works with the A
 To be able to use this app, you have to add a file named `firebase.js` in `src` folder with your firebase config parameters :
 ```javascript
 
-const firebase = require("firebase/app");
-require("firebase/firestore");
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "api-key",
-  authDomain: "project-id.firebaseapp.com",
-  databaseURL: "https://project-id.firebaseio.com",
-  projectId: "project-id",
-  storageBucket: "project-id.appspot.com",
-  messagingSenderId: "sender-id",
-  appId: "app-id",
-  measurementId: "G-measurement-id",
+apiKey: "api-key",
+authDomain: "project-id.firebaseapp.com",
+databaseURL: "https://project-id.firebaseio.com",
+projectId: "project-id",
+storageBucket: "project-id.appspot.com",
+messagingSenderId: "sender-id",
+appId: "app-id",
+measurementId: "G-measurement-id"
 };
 
 firebase.initializeApp(firebaseConfig);
 export const database = firebase.firestore()
-  .collection("portfolio")
-  .doc("V1.0");
+    .collection('portfolio')
+    .doc('V1.0');
 
 ```
 
