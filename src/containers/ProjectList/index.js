@@ -56,11 +56,13 @@ const ProjectList = (props) => {
                 {
                     projects.map(project => {
                         const img = project.main_picture ? project.main_picture : "https://materializecss.com/images/sample-1.jpg"
+                        const imgAlt = project.main_picture_alt ? project.main_picture_alt : "default materialize css card background"
+                        const cardTitleCustomColor = <span style={{color: "#ff9800"}}>{project.title}</span>;
                         return(
-                            <Col s={12} m={6}>
+                            <Col s={12} m={6} key={project.id}>
                                 <Card
-                                    className="light-blue darken-2 hoverable"
-                                    header={<CardTitle image={img} alt={project.main_picture_alt}>{project.title}</CardTitle>}
+                                    className="light-blue darken-2 hoverable white-text"
+                                    header={<CardTitle image={img} alt={imgAlt}>{cardTitleCustomColor}</CardTitle>}
                                     actions={[<NavLink key={project.id} to={{pathname: `/project/${project.title}`, themeId: `${themeId}`, categoryId: `${categoryId}`, projectId: `${project.id}`}}><Icon right>arrow_forward</Icon> En savoir plus</NavLink>]}
                                 >
                                     {project.description}
